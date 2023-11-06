@@ -1,0 +1,79 @@
+[
+    {
+      "title": "Math Quiz",
+      "description": "Solve a set of challenging math problems.",
+      "marks": 50,
+      "thumbnailImageUrl": "URL_TO_YOUR_MATH_QUIZ_IMAGE",
+      "difficultyLevel": "Intermediate",
+      "startDate":"2023-11-05T19:05:22.698Z",
+      "dueDate": "2023-11-05T19:05:22.698Z"
+    },
+    {
+      "title": "Literature Analysis",
+      "description": "Analyze and discuss a classic novel of your choice.",
+      "marks": 40,
+      "thumbnailImageUrl": "URL_TO_YOUR_LITERATURE_ANALYSIS_IMAGE",
+      "difficultyLevel": "Advanced"
+    },
+    {
+      "title": "Chemistry Experiment",
+      "description": "Perform a hands-on chemistry experiment and document your results.",
+      "marks": 60,
+      "thumbnailImageUrl": "URL_TO_YOUR_CHEMISTRY_EXPERIMENT_IMAGE",
+      "difficultyLevel": "Intermediate"
+    },
+    {
+      "title": "History Presentation",
+      "description": "Create a presentation on a historical event or figure.",
+      "marks": 30,
+      "thumbnailImageUrl": "URL_TO_YOUR_HISTORY_PRESENTATION_IMAGE",
+      "difficultyLevel": "Beginner"
+    },
+    {
+      "title": "Programming Challenge",
+      "description": "Solve a coding challenge in your preferred programming language.",
+      "marks": 70,
+      "thumbnailImageUrl": "URL_TO_YOUR_PROGRAMMING_CHALLENGE_IMAGE",
+      "difficultyLevel": "Advanced"
+    },
+    {
+      "title": "Art Critique",
+      "description": "Critique and analyze a famous work of art.",
+      "marks": 45,
+      "thumbnailImageUrl": "URL_TO_YOUR_ART_CRITIQUE_IMAGE",
+      "difficultyLevel": "Intermediate"
+    },
+
+
+
+
+   
+    {
+      "title": "Geography Quiz",
+      "description": "Test your knowledge of world geography with a quiz.",
+      "marks": 40,
+      "thumbnailImageUrl": "URL_TO_YOUR_GEOGRAPHY_QUIZ_IMAGE",
+      "difficultyLevel": "Beginner"
+    },
+    {
+      "title": "Biology Research Paper",
+      "description": "Write a research paper on a biological topic of your choice.",
+      "marks": 75,
+      "thumbnailImageUrl": "URL_TO_YOUR_BIOLOGY_RESEARCH_PAPER_IMAGE",
+      "difficultyLevel": "Advanced"
+    },
+    {
+      "title": "Economics Case Study",
+      "description": "Analyze an economic case study and provide solutions.",
+      "marks": 55,
+      "thumbnailImageUrl": "URL_TO_YOUR_ECONOMICS_CASE_STUDY_IMAGE",
+      "difficultyLevel": "Intermediate"
+    },
+    {
+      "title": "Music Composition",
+      "description": "Compose an original piece of music and explain your creative process.",
+      "marks": 65,
+      "thumbnailImageUrl": "URL_TO_YOUR_MUSIC_COMPOSITION_IMAGE",
+      "difficultyLevel": "Advanced"
+    }
+  ]

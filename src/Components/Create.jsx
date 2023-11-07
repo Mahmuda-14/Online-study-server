@@ -2,16 +2,19 @@
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import sky from '../assets/add.png'
 import pc from '../assets/mesh-757.png'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { AuthContext } from './Provider/AuthProvider';
 
 const Create = () => {
 
     const [startDate, setStartDate] = useState(new Date())
     const [dueDate, setDueDate] = useState(new Date())
+
+    const { user } = useContext(AuthContext);
    
 
 
@@ -26,8 +29,9 @@ const Create = () => {
         const marks = form.marks.value;
         const status = form.status.value;
         const difficultyLevel = form.querySelector('select[name="type"]').value;
+        const email = user.email;
 
-        const product = { title, description, marks, img, difficultyLevel, startDate, dueDate, status }
+        const product = { title, description, marks, img, difficultyLevel, startDate, dueDate, status,email }
 
         console.log(product);
 

@@ -12,6 +12,7 @@ import ErrorPage from './ErrorPage';
 import Detail from './Details/Detail';
 import Update from './Update';
 import Submitted from './Submission/Submitted';
+import Private from './Private';
 
 const router = createBrowserRouter([
     {
@@ -42,12 +43,12 @@ const router = createBrowserRouter([
             },
             {
                 path: '/task/:id',
-                element: <Detail></Detail>,
+                element: <Private><Detail></Detail></Private>,
                 loader: ({ params }) => fetch(`http://localhost:5000/task/${params.id}`)
             },
             {
                 path: '/update/:id',
-                element: <Update></Update>,
+                element: <Private><Update></Update></Private>,
                 loader: ({ params }) => fetch(`http://localhost:5000/task/${params.id}`)
             },
 
@@ -58,7 +59,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/my',
-                element: <MyAssign></MyAssign>
+                element: <MyAssign></MyAssign>,
+                loader: () => fetch('http://localhost:5000/task')
 
             },
             {

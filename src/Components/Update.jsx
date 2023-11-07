@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import Swal from "sweetalert2";
+
 const Update = () => {
 
     const [startDate, setStartDate] = useState(new Date())
@@ -25,6 +26,7 @@ const Update = () => {
         const marks = form.marks.value;
         const difficultyLevel = form.querySelector('select[name="type"]').value;
         const status = form.status.value;
+       
 
         const updatedItem = { title, description, marks, img, difficultyLevel, startDate, dueDate, status  }
 

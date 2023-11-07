@@ -39,7 +39,7 @@ const Navbar = () => {
                         <button onClick={handleLogOut} className="flex items-center cursor-pointer">
                             <img
                                 src={user.photoURL}
-                                alt="User"
+                                alt=""
                                 className=" w-6 rounded-full transition-transform transform group-hover:-translate-y-2"
                                 onMouseEnter={() => setShowName(true)}
                                 onMouseLeave={() => setShowName(false)}
@@ -52,11 +52,7 @@ const Navbar = () => {
                         )}
                     
                 </li>
-                {/* <li>
-           <img className=" w-10 rounded-full" src={user.photoURL} />
-            <p className="mx-1">{user.displayName}</p>
-            <button onClick={handleLogOut}>LogOut</button>
-            </li> */}
+              
             </>
             :
             <><li><Link to='/login'>Login</Link></li>
@@ -81,6 +77,7 @@ const Navbar = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             {navItems}
+                            {navSign}
                         </ul>
                     </div>
                 </div>
@@ -90,7 +87,7 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end sm:hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
 
                         {navSign}

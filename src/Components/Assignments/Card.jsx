@@ -9,7 +9,6 @@ const Card = () => {
 
   const [filteredServices, setFilteredServices] = useState(all);
 
-  // Function to filter services by difficulty
 
   const filterTask = (difficulty) => {
     return all.filter((service) => service.difficultyLevel === difficulty);
@@ -22,11 +21,7 @@ const Card = () => {
     else {
       setFilteredServices(all);
     }
-    // When the component mounts or difficultyLevel changes
 
-
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [difficultyLevel, all]);
 
 

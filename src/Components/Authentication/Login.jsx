@@ -56,6 +56,7 @@ const Login = () => {
             .catch(error => {
                 console.error(error);
             })
+            
     }
 
 
@@ -118,7 +119,9 @@ const Login = () => {
                <p>Or</p>
                <button onClick={handleGoogleSignIn}>Sign in with <span className=" text-blue-900">Google</span></button>
            </div>
-           {/* <ToastContainer /> */}
+           
+
+           <h2></h2>
 
        </div>
       

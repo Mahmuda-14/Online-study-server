@@ -23,8 +23,6 @@ const Login = () => {
     const provider = new GoogleAuthProvider();
 
 
-    // console.log('location i n the login page', location)
-
     const handleLogin = e => {
         e.preventDefault();
         // console.log(e.currentTarget);
@@ -54,15 +52,6 @@ const Login = () => {
                     navigate(location?.state ? location?.state : '/');
                 })
 
-
-
-
-
-
-
-                // toast('Login Successfull');
-                // navigate(location?.state ? location.state : '/');
-
             })
             .catch(error => {
                 console.error(error);
@@ -74,8 +63,7 @@ const Login = () => {
         signInWithPopup(auth, provider)
             .then(result =>{
                 const loggedUser = result.user;
-                // console.log(loggedUser);
-                // const user = { email };
+                
                 axios.post('https://online-study-server-cyan.vercel.app/jwt', loggedUser.email, {withCredentials: true})
                 .then(res =>{
                     console.log(res.data)

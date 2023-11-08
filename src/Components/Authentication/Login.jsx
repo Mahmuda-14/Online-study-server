@@ -39,7 +39,7 @@ const Login = () => {
                 console.log(loggedUser);
                 const user = { email };
 
-                axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
+                axios.post('https://online-study-server-cyan.vercel.app/jwt', user, {withCredentials: true})
                 .then(res =>{
                     console.log(res.data)
                     if(res.data.success){
@@ -72,7 +72,25 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
         signInWithPopup(auth, provider)
-            .then()
+            .then(result =>{
+                const loggedUser = result.user;
+                // console.log(loggedUser);
+                // const user = { email };
+                axios.post('https://online-study-server-cyan.vercel.app/jwt', loggedUser.email, {withCredentials: true})
+                .then(res =>{
+                    console.log(res.data)
+                    if(res.data.success){
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Succesfully Logged In',
+                            icon: 'success',
+                            confirmButtonText: 'Cool'
+                        })
+                   
+                    }
+                    navigate(location?.state ? location?.state : '/');
+                })
+            })
             .catch(error => {
                 console.log(error);
             })

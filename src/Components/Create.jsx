@@ -15,7 +15,7 @@ const Create = () => {
     const [dueDate, setDueDate] = useState(new Date())
 
     const { user } = useContext(AuthContext);
-   
+ 
 
 
     const handleAddProduct = event => {
@@ -37,7 +37,7 @@ const Create = () => {
 
         // send data to the server
 
-        fetch('http://localhost:5000/task', {
+        fetch('https://online-study-server-cyan.vercel.app/task', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -47,7 +47,7 @@ const Create = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                toast('Assignment Added');
+                toast('Assignment Added succefully');
             })
     }
 
@@ -72,7 +72,7 @@ const Create = () => {
                                     <span className="label-text">Image</span>
                                 </label>
 
-                                <input type="text" name="image" placeholder="Image-URL" className="input input-bordered w-full " />
+                                <input type="text" name="image" placeholder="Image-URL" className="input input-bordered w-full " required />
 
                             </div>
                             <div className="form-control md:w-1/2 ml-4">
@@ -80,7 +80,7 @@ const Create = () => {
                                     <span className="label-text">Status</span>
                                 </label>
 
-                                <input type="text" name="status" placeholder="Status" className="input input-bordered w-full" />
+                                <input type="text" name="status" placeholder="Status" className="input input-bordered w-full" required />
 
                             </div>
                         </div>
@@ -93,7 +93,8 @@ const Create = () => {
                                     <span className="label-text">Title</span>
                                 </label>
 
-                                <input type="text" name="title" placeholder="Title" className="input input-bordered w-full" />
+                                {/* <input type="text" name="title" placeholder="Title" className="input input-bordered w-full" /> */}
+                                <input type="text" name="title" placeholder="Title" className="input input-bordered w-full" required/>
 
                             </div>
                             <div className="form-control md:w-1/2 ml-4">
@@ -101,7 +102,7 @@ const Create = () => {
                                     <span className="label-text">Difficulty-level</span>
                                 </label>
 
-                                <select className="select select-bordered w-full max-w-xs" name="type">
+                                <select className="select select-bordered w-full max-w-xs" name="type" required>
                                     <option disabled selected>Difficulty-level</option>
                                     <option value="Easy">Easy</option>
                                     <option value="Medium">Medium</option>
@@ -154,7 +155,7 @@ const Create = () => {
                                     <span className="label-text">Short description</span>
                                 </label>
 
-                                <input type="text" name="description" placeholder="Short description" className="input input-bordered w-full" />
+                                <input type="text" name="description" placeholder="Short description" className="input input-bordered w-full"  required/>
 
                             </div>
                             <div className="form-control md:w-1/2 ml-4">
@@ -162,7 +163,7 @@ const Create = () => {
                                     <span className="label-text">Marks</span>
                                 </label>
 
-                                <input type="text" name="marks" placeholder="marks" className="input input-bordered w-full" />
+                                <input type="text" name="marks" placeholder="marks" className="input input-bordered w-full"  required/>
 
                             </div>
                         </div>

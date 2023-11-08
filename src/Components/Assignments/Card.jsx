@@ -22,6 +22,7 @@ const Card = () => {
       setFilteredServices(all);
     }
 
+ 
   }, [difficultyLevel, all]);
 
 
@@ -48,7 +49,7 @@ const Card = () => {
           <option value="Hard">Hard</option>
         </select>
       </form>
-      <div className="grid grid-cols-3 gap-6 ml-10 my-7">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ml-10 my-7">
         {filteredServices.map((service) =>
           <SingleCard key={service._id} service={service} />
         )}

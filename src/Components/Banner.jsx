@@ -8,7 +8,7 @@ import slide3 from '../assets/ban3.jpg';
 
 const Banner = () => {
     return (
-        <div>
+        <div className=''>
             <Swiper
                 spaceBetween={50}
                 slidesPerView={1}

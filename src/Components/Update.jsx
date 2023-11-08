@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const Update = () => {
 
@@ -26,19 +27,25 @@ const Update = () => {
         const marks = form.marks.value;
         const difficultyLevel = form.querySelector('select[name="type"]').value;
         const status = form.status.value;
-       
 
-        const updatedItem = { title, description, marks, img, difficultyLevel, startDate, dueDate, status  }
+
+        const updatedItem = { title, description, marks, img, difficultyLevel, startDate, dueDate, status }
 
         console.log(updatedItem);
 
         // send data to the server
-        fetch(`http://localhost:5000/task/${_id}`, {
-            method: 'PUT',
+
+        // fetch(`https://online-study-server-cyan.vercel.app/task/${_id}`, {
+        //     method: 'PUT',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(updatedItem)
+        // })
+        axios.put(`https://online-study-server-cyan.vercel.app/task/${_id}`, updatedItem, {
             headers: {
-                'content-type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(updatedItem)
         })
             .then(res => res.json())
             .then(data => {
@@ -66,7 +73,7 @@ const Update = () => {
                             <span className="label-text">Image</span>
                         </label>
 
-                        <input type="text" name="image" placeholder="Image-URL" className="input input-bordered w-full " defaultValue={img}/>
+                        <input type="text" name="image" placeholder="Image-URL" className="input input-bordered w-full " defaultValue={img} />
 
                     </div>
                     <div className="form-control md:w-1/2 ml-4">

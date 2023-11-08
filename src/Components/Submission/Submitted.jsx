@@ -3,6 +3,7 @@
 
 import {  useEffect, useState } from "react";
 import SubmitR from "./SubmitR";
+import axios from "axios";
 
 
 const Submitted = () => {
@@ -11,11 +12,15 @@ const Submitted = () => {
     
 
    
-    const url = 'http://localhost:5000/submit';
+    const url = 'https://online-study-server-cyan.vercel.app/submit';
     useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setBookings(data))
+        // fetch(url)
+        axios.get(url, {withCredentials: true})
+            .then(res => {
+                setBookings(res.data)
+
+            })
+            // .then(data => setBookings(data))
 
 
     }, [url])

@@ -26,6 +26,10 @@ const Register = () => {
     const form = new FormData(e.currentTarget);
     const email = form.get('email');
     const password = form.get('password');
+    const name = form.get('name')
+    const photo = form.get('photo')
+
+    console.log(email,password,name,photo)
 
     setRegisterError('');
     setSuccess('');
@@ -38,7 +42,7 @@ const Register = () => {
     }
 
 
-    createUser(email, password)
+    createUser(email, password )
       .then(result => {
         console.log(result.user)
         setSuccess('User Created Successfully.')
@@ -88,6 +92,12 @@ const Register = () => {
               <span className="label-text">Name</span>
             </label>
             <input type="text" required name="name" placeholder="Name" className="input input-bordered" />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Photo</span>
+            </label>
+            <input type="url" name="photo" id="" placeholder='Photo-URL' className="input input-bordered"/>
           </div>
 
           <div className="form-control">

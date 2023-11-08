@@ -50,7 +50,7 @@ const SingleDetail = ({ detail }) => {
         // console.log(submissionData);
 
        
-        fetch('http://localhost:5000/submit', {
+        fetch('https://online-study-server-cyan.vercel.app/submit', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

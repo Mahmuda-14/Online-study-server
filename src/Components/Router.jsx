@@ -28,7 +28,7 @@ const router = createBrowserRouter([
             {
                 path: '/task',
                 element: <Card></Card>,
-                loader: () => fetch('http://localhost:5000/task')
+                loader: () => fetch('https://online-study-server-cyan.vercel.app/task')
 
             },
             {
@@ -44,28 +44,28 @@ const router = createBrowserRouter([
             {
                 path: '/task/:id',
                 element: <Private><Detail></Detail></Private>,
-                loader: ({ params }) => fetch(`http://localhost:5000/task/${params.id}`)
+                loader: ({ params }) => fetch(`https://online-study-server-cyan.vercel.app/task/${params.id}`)
             },
             {
                 path: '/update/:id',
                 element: <Private><Update></Update></Private>,
-                loader: ({ params }) => fetch(`http://localhost:5000/task/${params.id}`)
+                loader: ({ params }) => fetch(`https://online-study-server-cyan.vercel.app/task/${params.id}`)
             },
 
             {
                 path: '/add',
-                element: <Create></Create>
+                element: <Private><Create></Create></Private>
 
             },
             {
                 path: '/my',
-                element: <MyAssign></MyAssign>,
-                loader: () => fetch('http://localhost:5000/task')
+                element: <Private><MyAssign></MyAssign></Private>,
+                loader: () => fetch('https://online-study-server-cyan.vercel.app/task')
 
             },
             {
                 path: '/submit',
-                element: <Submitted></Submitted>
+                element: <Private><Submitted></Submitted></Private>
 
             }
 

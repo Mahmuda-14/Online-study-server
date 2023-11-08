@@ -21,7 +21,7 @@ const MyAssign = () => {
   const handleDelete = ( id )=> {
     const proceed = confirm('Are u Sure??')
     if (proceed) {
-      fetch(`http://localhost:5000/task/${id}`, {
+      fetch(`https://online-study-server-cyan.vercel.app/task/${id}`, {
         method: 'DELETE'
 
       })
@@ -62,7 +62,7 @@ const MyAssign = () => {
 
       setFilteredServices(all);
     }
-  }, [email, all]);
+  }, [email, all, userEmail]);
 
   return (
     <div className="bg-no-repeat bg-cover " style={{ backgroundImage: `url(${bg2}` }}>

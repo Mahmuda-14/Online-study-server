@@ -3,9 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import Swal from "sweetalert2";
 
 
 
@@ -13,6 +11,7 @@ import app from "../firebase/firebase.config";
 // import { AuthContext } from "../Provider/AuthProvider";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import axios from "axios";
 const Login = () => {
   const {  signIn } = useContext(AuthContext)
     const location = useLocation();
@@ -24,21 +23,45 @@ const Login = () => {
     const provider = new GoogleAuthProvider();
 
 
-    console.log('location i n the login page', location)
+    // console.log('location i n the login page', location)
 
     const handleLogin = e => {
         e.preventDefault();
-        console.log(e.currentTarget);
+        // console.log(e.currentTarget);
         const form = new FormData(e.currentTarget);
         const email = form.get('email');
         const password = form.get('password');
-        console.log(email, password);
+        // console.log(email, password);
 
         signIn(email, password)
             .then(result => {
-                console.log(result.user);
-                toast('Login Successfull');
-                navigate(location?.state ? location.state : '/');
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                const user = { email };
+
+                axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
+                .then(res =>{
+                    console.log(res.data)
+                    if(res.data.success){
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Succesfully Logged In',
+                            icon: 'success',
+                            confirmButtonText: 'Cool'
+                        })
+                   
+                    }
+                    navigate(location?.state ? location?.state : '/');
+                })
+
+
+
+
+
+
+
+                // toast('Login Successfull');
+                // navigate(location?.state ? location.state : '/');
 
             })
             .catch(error => {
@@ -59,7 +82,7 @@ const Login = () => {
     return (
         
      
-         <div className=" bg-red-100 lg:mx-[23rem] lg:py-9 rounded-xl mt-[197px] sm:ml-[30px] sm:mr-[42px]" >
+         <div className=" bg-red-100 lg:mx-[23rem] lg:py-9 rounded-xl sm:ml-[30px] sm:mr-[42px]" >
            <h2 className="text-3xl my-10 text-center">Log in to your Account</h2>
            
            <form onSubmit={handleLogin} className=" md:w-3/4 lg:w-1/2 mx-auto">
@@ -89,7 +112,7 @@ const Login = () => {
                <p>Or</p>
                <button onClick={handleGoogleSignIn}>Sign in with <span className=" text-blue-900">Google</span></button>
            </div>
-           <ToastContainer />
+           {/* <ToastContainer /> */}
 
        </div>
       

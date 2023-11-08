@@ -119,10 +119,7 @@ const Login = () => {
                <p>Or</p>
                <button onClick={handleGoogleSignIn}>Sign in with <span className=" text-blue-900">Google</span></button>
            </div>
-           
-
-       <h2>hello</h2>
-       <h3>hekko</h3>
+        
 
        </div>
       

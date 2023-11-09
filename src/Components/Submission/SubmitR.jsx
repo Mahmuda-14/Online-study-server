@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
-
-
+// /* eslint-disable react/prop-types */
+// import ReactPDF from '@react-pdf/renderer';
+// import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import { PDFDownloadLink } from '@react-pdf/renderer';
 import { useState, useEffect } from "react";
 const SubmitR = ({ booking }) => {
     const { _id, pdfLink, examinee, title, marks } = booking;
     const [status, setStatus] = useState('');
-  
-    
+
+
     useEffect(() => {
 
         fetch(`https://online-study-server-cyan.vercel.app/submit/${_id}`)
@@ -36,6 +38,10 @@ const SubmitR = ({ booking }) => {
             });
     };
 
+
+
+
+
     return (
         <tr>
             <td>{title}</td>
@@ -53,9 +59,15 @@ const SubmitR = ({ booking }) => {
 
                 <dialog id="my_modal_1" className="modal">
                     <div className="modal-box gap-3 m-5" >
-                        <input type="text" value={pdfLink}   className='input input-bordered m-2'  />
-                       
-                        
+                        {/* <input type="text" value={pdfLink} className='input input-bordered m-2' /> */}
+
+                        <p>
+                        <PDFDownloadLink document={pdfLink} >
+                            {({loading}) => (loading ? <button className='btn'>Loading Doument...</button> : <button className='btn'>Download</button>)}
+                        </PDFDownloadLink>
+                        </p>
+
+
                         <input type="number" name="" id="" placeholder='Give-marks' className='input input-bordered' />
                         <input type="text" name="" id="" placeholder="Feedback" className='input input-bordered w-full my-4' />
                         <div className="modal-action">
@@ -79,7 +91,6 @@ const SubmitR = ({ booking }) => {
 };
 
 export default SubmitR;
-
 
 
 

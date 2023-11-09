@@ -5,7 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import Swal from "sweetalert2";
-import axios from "axios";
+// import axios from "axios";
 
 const Update = () => {
 
@@ -42,10 +42,28 @@ const Update = () => {
         //     },
         //     body: JSON.stringify(updatedItem)
         // })
-        axios.put(`https://online-study-server-cyan.vercel.app/task/${_id}`, updatedItem, {
+
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data);
+        //         if ((data.modifiedCount) > 0) {
+        //             Swal.fire({
+        //                 title: 'Success!',
+        //                 text: 'Item Updated Successfully',
+        //                 icon: 'success',
+        //                 confirmButtonText: 'Cool'
+        //             })
+        //         }
+
+        //     })
+
+
+        fetch(`https://online-study-server-cyan.vercel.app/task/${_id}`, {
+            method: 'PUT',
             headers: {
-                'Content-Type': 'application/json',
+                'content-type': 'application/json'
             },
+            body: JSON.stringify(updatedItem)
         })
             .then(res => res.json())
             .then(data => {
@@ -60,6 +78,17 @@ const Update = () => {
                 }
 
             })
+
+
+
+
+
+
+
+
+
+
+
     }
 
     return (

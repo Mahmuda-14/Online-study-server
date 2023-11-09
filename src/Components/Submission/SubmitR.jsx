@@ -59,9 +59,9 @@ const SubmitR = ({ booking }) => {
 
                 <dialog id="my_modal_1" className="modal">
                     <div className="modal-box gap-3 m-5" >
-                        {/* <input type="text" value={pdfLink} className='input input-bordered m-2' /> */}
-
-                        <button className='btn'  >Download Assignment;{pdfLink}</button>
+                     
+                        <button className='btn'  >Download Assignment : {pdfLink}</button>
+                       
                         <input type="number" name="" id="" placeholder='Give-marks' className='input input-bordered' />
                         <input type="text" name="" id="" placeholder="Feedback" className='input input-bordered w-full my-4' />
                         <div className="modal-action">

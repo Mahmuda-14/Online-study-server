@@ -34,12 +34,9 @@ const SubmitR = ({ booking }) => {
             .catch((error) => {
                 console.error(error);
             });
-            
-           
+
+
     };
-
-
-
 
 
     return (
@@ -59,22 +56,16 @@ const SubmitR = ({ booking }) => {
 
                 <dialog id="my_modal_1" className="modal">
                     <div className="modal-box gap-3 m-5" >
-                     
-                        <button className='btn'  >Download Assignment : {pdfLink}</button>
-                       
+                        <input type="btn" value={pdfLink} className='input input-bordered m-2' />
                         <input type="number" name="" id="" placeholder='Give-marks' className='input input-bordered' />
                         <input type="text" name="" id="" placeholder="Feedback" className='input input-bordered w-full my-4' />
                         <div className="modal-action">
-                            <form
-                                onSubmit={(e) => {
+                            <form onSubmit={(e) => {
                                     e.preventDefault();
                                     handleStatusChange(_id);
                                     document.getElementById('my_modal_1').close();
-                                }}
-                            >
-                                <button className="btn" >
-                                    Submit Marks
-                                </button>
+                                }}>
+                                <button className="btn" >Submit Marks</button>
                             </form>
                         </div>
                     </div>
